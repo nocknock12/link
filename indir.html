@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Link İndirme</title>
+    <style>
+        #kare {
+          width: 100px;
+          height: 100px;
+          background-color: lightblue;
+          transition: all 0.3s ease;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+      </style>
+</head>
+<body> <center>
+    <div id="kare"><img src="aykutbey.jpg" alt="Resim açıklaması"></div>
+    <script>
+      const kare = document.getElementById('kare');
+      kare.addEventListener('mouseover', function() {
+        kare.style.width = '140px';
+        kare.style.height = '140px';
+        kare.style.transform = 'translate(-50%, -50%) rotate(-45deg)';
+      });
+  
+      kare.addEventListener('mouseout', function() {
+        kare.style.width = '100px';
+        kare.style.height = '100px';
+        kare.style.transform = 'translate(-50%, -50%) rotate(0deg)';
+      });
+    </script>
+   <h1>Link İndirme</h1>
+   <input type="text" id="urlInput" placeholder="Linki buraya yapıştırın">
+   <button onclick="indir()">İndir</button>
+   <script>
+       function indir() {
+           var url = document.getElementById('urlInput').value;
+           if (url) {
+               var link = document.createElement('a');
+               link.href = url;
+               link.setAttribute('download', ''); 
+               link.click();
+           } else {
+               alert('Lütfen bir URL girin');
+           }
+       }
+   </script>
+</body>
+</html>
